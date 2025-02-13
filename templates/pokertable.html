@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Kenny's Table</title>
+</head>
+
+<body>
+    <div>
+        <h2>Do you know when to fold 'em?</h2>
+	    <h3>Know when to hold 'em?</h3>
+    </div>
+	<div>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% else %}
+            {% for card in cards['cards'] %}
+                <div>
+                    <p>{{ card.value }} of {{ card.suit }}</p>
+                    <img src="{{ card.image }}" alt="{{ card.value }} of {{ card.suit }}">
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+
+</html>
