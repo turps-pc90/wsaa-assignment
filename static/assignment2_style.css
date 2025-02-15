@@ -1,0 +1,13 @@
+.vegas-table {
+    background-color: darkgreen;
+    color: whitesmoke;
+}
+
+.card-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Adjust the gap between cards as needed */
+}
+.card-item {
+    text-align: center;
+}

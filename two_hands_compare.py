@@ -14,6 +14,22 @@ hand_ranking = {
     "High Card": 10
 }
 
+def convert_card(card):
+    value = card['value']
+    suit = card['suit'][0].upper()  # Take the first letter of the suit and convert it to uppercase
+    if value == 'ACE':
+        value = 'A'
+    elif value == 'JACK':
+        value = 'J'
+    elif value == 'QUEEN':
+        value = 'Q'
+    elif value == 'KING':
+        value = 'K'
+    elif value == '10':
+        value = 'T'
+    return (value, suit)
+
+
 def compare_hands(hand1, hand2):
     rank1 = hand_ranking[hand1]
     rank2 = hand_ranking[hand2]
@@ -46,10 +62,8 @@ def poker_request2():
         # Classifying both hands
         hand1_name = hand1.classify()
         hand2_name = hand2.classify() 
-        
-        print("Hand 1:", hand1_name, converted_cards1)
-        print(" -  -  -  -  -  -  -  -  -  - ")
-        print("Hand 2:", hand2_name, converted_cards2)
-        
         result = compare_hands(hand1_name, hand2_name)
-        print(result)
+        return hand1_name, hand2_name, result, deal_one, deal_two
+    else:
+        return None, None, None, None, None
+        

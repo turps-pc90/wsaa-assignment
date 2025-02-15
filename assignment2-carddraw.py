@@ -1,6 +1,6 @@
 # Library Imports
 from flask import Flask, request, jsonify, render_template
-import requests
+from two_hands_compare import *
 
 # Initiate Flask App
 app = Flask(__name__)
@@ -8,12 +8,10 @@ app = Flask(__name__)
 # Endpoint for the root of the API & using render_template to push results to pokertable.html
 @app.route('/drawcards')
 def poker_request():
-    deck_id = "new"
-    url = f"https://deckofcardsapi.com/api/deck/{deck_id}/draw/?count=5"
-    response = requests.get(url)
-    if response.status_code == 200:
-        cards = response.json()
-        return render_template('pokertable.html', cards=cards)
+    hand1_name, hand2_name, result, deal_one, deal_two = poker_request2()
+    # Check that poker_request2() worked by verifying hand1_name <> None
+    if hand1_name:
+        return render_template('pokertable.html', hand1=hand1_name, hand2=hand2_name, result=result, cards1=deal_one, cards2=deal_two)
     else:
         return render_template('pokertable.html', error="You gotta know when to hold 'em, know when to fold 'em.")
     

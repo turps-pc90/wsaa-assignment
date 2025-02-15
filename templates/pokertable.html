@@ -3,25 +3,75 @@
 
 <head>
 	<title>Kenny's Table</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assignment2_style.css') }}">
 </head>
 
 <body>
-    <div>
-        <h2>Do you know when to fold 'em?</h2>
-	    <h3>Know when to hold 'em?</h3>
-    </div>
-	<div>
-        {% if error %}
-            <p>{{ error }}</p>
-        {% else %}
-            {% for card in cards['cards'] %}
-                <div>
-                    <p>{{ card.value }} of {{ card.suit }}</p>
-                    <img src="{{ card.image }}" alt="{{ card.value }} of {{ card.suit }}">
+    <div class="container">
+        <div class="text-center mt-4">
+            <h2>Do you know when to fold 'em?</h2>
+            <h3>Know when to hold 'em?</h3>
+            <h3>Scroll down to see the dealer's thoughts</h3>
+        </div>
+        <div class="vegas-table">
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% else %}
+                <div class="mb-4">
+                    <h4>Hand 1: {{ hand1 }}</h4>
+                    <div class="card-row d-flex justify-content-center">
+                        {% for card in cards1 %}
+                            <div class="card-item mx-2">
+                                <p>{{ card.value }} of {{ card.suit }}</p>
+                                <img src="{{ card.image }}" class="img-fluid" alt="{{ card.value }} of {{ card.suit }}">
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-            {% endfor %}
-        {% endif %}
+                <div class="mb-4">
+                    <h4>Hand 2: {{ hand2 }}</h4>
+                    <div class="card-row d-flex justify-content-center">
+                        {% for card in cards2 %}
+                            <div class="card-item mx-2">
+                                <p>{{ card.value }} of {{ card.suit }}</p>
+                                <img src="{{ card.image }}" class="img-fluid" alt="{{ card.value }} of {{ card.suit }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/KennyRogers_%28cropped%29.jpg/663px-KennyRogers_%28cropped%29.jpg?20200321102242" class="img-fluid" alt="Kenny Rogers">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <h3>What are you saying Kenny? - {{ result }}</h3>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="assignment-notes">
+            <div>
+                <h4>Assignment References</h4>
+                <ul>
+                    <li>Kenny Rogers Image (cropped). Available at: <a href="https://commons.wikimedia.org/wiki/File:KennyRogers_%28cropped%29.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:KennyRogers_%28cropped%29.jpg</a> (Accessed: 15 February 2025).</li>
+                    <li>Flask. (n.d.). Flask Quickstart - Static Files. Available at: <a href="https://flask.palletsprojects.com/en/stable/quickstart/#static-files" target="_blank">https://flask.palletsprojects.com/en/stable/quickstart/#static-files</a> (Accessed: 15 February 2025).</li>
+                    <li>Bootstrap. (n.d.). Introduction. Available at: <a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" target="_blank">https://getbootstrap.com/docs/4.1/getting-started/introduction/</a> (Accessed: 15 February 2025).</li>
+                    <li>Irfan, M. (2019). <i>Creating and Deploying a Simple Flask API Server and Client Side</i>. Available at: <a href="https://medium.com/@muhammadirfan92/creating-and-deploying-a-simple-flask-api-server-and-client-side-7d4f5690551" target="_blank">https://medium.com/@muhammadirfan92/creating-and-deploying-a-simple-flask-api-server-and-client-side-7d4f5690551</a> (Accessed: 15 February 2025).</li>
+                    <li>Deck of Cards API. (n.d.). <i>Deck of Cards API</i>. Available at: <a href="https://deckofcardsapi.com/" target="_blank">https://deckofcardsapi.com/</a> (Accessed: 15 February 2025).</li>
+                    <li>GeeksforGeeks. (2019). <i>Flask - Rendering Templates</i>. Available at: <a href="https://www.geeksforgeeks.org/flask-rendering-templates/" target="_blank">https://www.geeksforgeeks.org/flask-rendering-templates/</a> (Accessed: 15 February 2025).</li>
+                    <li>Microsoft. (n.d.). <i>Tutorial: Get Started with Python in Visual Studio Code</i>. Available at: <a href="https://code.visualstudio.com/docs/python/tutorial-flask" target="_blank">https://code.visualstudio.com/docs/python/tutorial-flask</a> (Accessed: 15 February 2025).</li>
+                    <li>Wikipedia. (n.d.). <i>Poker Hands</i>. Available at: <a href="https://en.m.wikipedia.org/wiki/File:Poker_Hands.png" target="_blank">https://en.m.wikipedia.org/wiki/File:Poker_Hands.png</a> (Accessed: 15 February 2025).</li>
+                    <li>jonathanza. (2021). <i>Poker Hands - Usage</i>. Available at: <a href="https://github.com/jonathanza/poker_hands/blob/main/README.md#usage" target="_blank">https://github.com/jonathanza/poker_hands/blob/main/README.md#usage</a> (Accessed: 15 February 2025).</li>
+                </ul>
+                <p>I may have gone a bit OTT for this assignment but I would be familiar with Flask from a Web Development course I completed a few years ago and wanted to refamiliarise myself with it.</p>
+            </div>
+        </div>
     </div>
 </body>
-
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>
