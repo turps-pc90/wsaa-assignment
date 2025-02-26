@@ -1,12 +1,10 @@
-# Project Name
+# WSAA Assignments
 
 ## Description
-A brief description of what this project does and who it's for.
+This repo contains the Python scripts and Jupyter Notebooks used as I worked throught the assignments. I would have used Flask around 10 years ago as part of a Level 6 and I tried to re-familiarise myself with it (somewhat) with assignment 2. 
 
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -15,32 +13,14 @@ Instructions on how to install and set up the project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/turps-pc90/wsaa-assignment.git
 
 # Navigate to the project directory
-cd your-repo-name
+cd wsaa-assignment
 
 # Install dependencies
 npm install
 ```
-
-## Usage
-Instructions and examples for using the project.
-
-```bash
-# Run the application
-npm start
-```
-
-## Contributing
-Guidelines for contributing to the project.
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -48,4 +28,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 Your Name - [your.email@example.com](mailto:your.email@example.com)
 
-Project Link: [https://github.com/yourusername/your-repo-name](https://github.com/yourusername/your-repo-name)
+Project Link: [https://github.com/turps-pc90/wsaa-assignment](https://github.com/turps-pc90/wsaa-assignment)
