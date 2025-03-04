@@ -12,4 +12,6 @@ data = requests.get(url).json()
 # Print out data in more readable format using JSON library dumps() function.
 # Formatting was not requested in assignmnent but prefered for readability.
 json_str = json.dumps(data, indent=4)
-print(json_str)
+cso_file = open("cso_data.json", "w")
+cso_file.write(json_str)
+cso_file.close()
