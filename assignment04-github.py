@@ -7,9 +7,6 @@ from github import Github, Auth
 # Using access token as per README - https://github.com/PyGithub/PyGithub
 auth = Auth.Token(keys["githubkey"])
 
-# Defining username
-ainm = acc["github_acc"]
-
 # The aim of the script below is to access the andrews.txt file
 # from the GitHub repo and change the content of the file. 
 
