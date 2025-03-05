@@ -45,7 +45,7 @@ raw_data = content.decoded_content.decode("utf-8")
 
 # Update specific file in repo - https://pygithub.readthedocs.io/en/stable/examples/Repository.html#update-a-file-in-the-repository
 # str.replace function - https://docs.python.org/3/library/stdtypes.html#str.replace
-updated_data = file_name.replace("Andrew", "Paul")
+updated_data = raw_data.replace("Andrew", "Paul")
 
 solo_repo.update_file(file_name,
                     "Updated andrews.txt: Replaced 'Andrew' with 'Paul'",
