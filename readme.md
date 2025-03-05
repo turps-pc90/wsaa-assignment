@@ -26,6 +26,6 @@ npm install
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
-Your Name - [your.email@example.com](mailto:your.email@example.com)
+Your Name - [g00425698@atu.ie](mailto:g00425698@atu.ie)
 
 Project Link: [https://github.com/turps-pc90/wsaa-assignment](https://github.com/turps-pc90/wsaa-assignment)
