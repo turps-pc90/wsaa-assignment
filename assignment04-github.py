@@ -12,17 +12,21 @@ auth = Auth.Token(keys["githubkey"])
 
 g = Github(auth=auth)
 
+# Define repo and file path
+repo_name = "turps-pc90/wsaa-assignment"
+file_name = "AssignmentTextFiles/andrews.txt"
+branch = "main"
 
 # Testing for successful connection
-user = g.get_user()
-print(f"Authenticated as: {user.login}")
+#user = g.get_user()
+#print(f"Authenticated as: {user.login}")
 
 # Find GitHub objects
 #for repo in g.get_user().get_repos():
 #    print(repo.name)
     
 # Find specific repository
-solo_repo = g.get_repo("turps-pc90/wsaa-assignment")
+solo_repo = g.get_repo(repo_name)
 
 # List files - https://pygithub.readthedocs.io/en/stable/examples/Repository.html
 # contents = solo_repo.get_contents("")
@@ -31,12 +35,25 @@ solo_repo = g.get_repo("turps-pc90/wsaa-assignment")
 
 # Read specific file in repo - https://github.com/PyGithub/PyGithub/issues/576
 content = solo_repo.get_contents("AssignmentTextFiles/andrews.txt")
-raw_data = content.decoded_content
-print(raw_data)
+
+# Initially I got an error relating to not having SHA value. 
+# I had missed the content.sha reference here - https://pygithub.readthedocs.io/en/latest/examples/Repository.html#update-a-file-in-the-repository
+file_sha = content.sha
+
+raw_data = content.decoded_content.decode("utf-8")
+#print(raw_data)
 
 # Update specific file in repo - https://pygithub.readthedocs.io/en/stable/examples/Repository.html#update-a-file-in-the-repository
-content = solo_repo.get_contents("AssignmentTextFiles/andrews.txt")
-print(content)
+# str.replace function - https://docs.python.org/3/library/stdtypes.html#str.replace
+updated_data = file_name.replace("Andrew", "Paul")
+
+solo_repo.update_file(file_name,
+                    "Updated andrews.txt: Replaced 'Andrew' with 'Paul'",
+                    updated_data,
+                    file_sha,
+                    branch=branch)
     
+print(f"Updated {file_name} successfully!")
+
 # Close connection
 g.close()
